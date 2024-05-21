@@ -13,7 +13,7 @@
 	<artifactId>tasks-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>tasks-backend</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<description>A very simple task management tool</description>
 
 	<properties>
@@ -32,16 +32,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
+		
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+			<version>42.7.3</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -76,6 +72,14 @@
 				</executions>
 				<configuration>
 					<destFile>${sonar.jacoco.reportPath}</destFile>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<mainClass>br.ce.wcaquino.taskbackend.TaskBackendApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
