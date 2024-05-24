@@ -41,7 +41,7 @@ pipeline {
         }
         stage('Clean'){
             steps{
-                always{
+                catchError(buildResult: 'SUCCESS') {
                     sh 'docker stop tasks'
                 }
             }
