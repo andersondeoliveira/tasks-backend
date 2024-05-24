@@ -39,9 +39,11 @@ pipeline {
                 sh 'docker build -t backend .'
             }
         }
-        stage('Clena'){
+        stage('Clean'){
             steps{
-                sh 'docker stop tasks'
+                always{
+                    sh 'docker stop tasks'
+                }
             }
         }
     }
